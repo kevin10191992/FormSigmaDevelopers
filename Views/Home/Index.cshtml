@@ -1,0 +1,100 @@
+﻿@model FormSigmaDevelopers.Models.Contacts
+@{
+    ViewData["Title"] = "Home";
+}
+
+
+<div class="mt-5">
+    <div class="d-flex justify-content-center align-content-center mb-3">
+        <div class="p-2">
+            <img src="~/img/sigma-logo.png" class="img-fluid" alt="Logo Sigma" />
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center align-content-center mb-2">
+        <div class="p-2">
+            <h1 class="font-weight-bold text-center">¡Hola, cuéntanos sobre ti!</h1>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center align-content-center mb-3">
+        <div class="p-2 w-700">
+            <h6 class="TextGray text-center">En sigma queremos tener un acercamiento contigo. <br class="d-none d-md-block" /> Por favor diligencia el formulario para comenzar tu experiencia con nosotros.</h6>
+        </div>
+
+    </div>
+
+    <div class="d-flex justify-content-md-center align-content-center flex-md-row flex-column mb-3 m-2">
+
+        <div class="align-items-center p-2 flex-wrap d-md-flex">
+            <img src="~/img/sigma-image.png" class="img-fluid ImageLeft" alt="Imagen Socializar" />
+        </div>
+
+        <div class="d-flex flex-wrap align-items-center">
+            <div class="card p-4 pl-md-5 pt-md-5 pr-md-5 CardForm shadow">
+
+                <form method="post" id="FormDev" asp-controller="Home" asp-action="FormAdmin">
+                    <div class="form-group">
+                        <label asp-for="State">Departamento*</label>
+                        <select class="form-control" asp-for="State" required>
+                            <option disabled tabindex="-1" selected value="">Seleccione</option>
+                        </select>
+                        <span asp-validation-for="State" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="City">Ciudad*</label>
+                        <select class="form-control" asp-for="City" required>
+                            <option disabled tabindex="-1" selected value="">Seleccione</option>
+                        </select>
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name">Nombre*</label>
+                        <input class="form-control" asp-for="Name" placeholder="Sigma Sigma" required maxlength="50">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Correo*</label>
+                        <input type="email" class="form-control" asp-for="Email" placeholder="sigma@sigma.com" required maxlength="30">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-4">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-danger SendButton p-2">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+<!--Zona modal-->
+<!-- Modal -->
+<div class="modal fade" id="ModalMensaje" tabindex="-1" aria-labelledby="TituloModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-center mb-3">
+                    <img src="~/img/formar.svg" alt="FormResult" class="img-fluid" style="max-height:100px;" />
+                </div>
+
+                <h5 id="MensajeModal" class="text-center font-weight-bold"></h5>
+            </div>
+            <div class="mb-3 d-flex justify-content-center">
+                <button type="button" class="btn btn-danger SendButton p-2" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

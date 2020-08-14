@@ -1,0 +1,53 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.TextGray {
+    color: #737172;
+    font-weight: 600;
+}
+
+.w-700 {
+    max-width: 700px;
+}
+
+.ImageLeft {
+    width: 450px;
+}
+
+.CardForm {
+    width: 450px;
+    border-radius: 28px;
+}
+
+Form label {
+    font-weight: bold;
+}
+
+::placeholder {
+    color: #AFB4BA;
+}
+
+.SendButton {
+    min-width: 150px;
+    border-radius: 28px;
+}
+
+.error {
+    color: #dc3545 !important;
+}
+
+.modal-content {
+    background: #FDC830; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F37335, #FDC830); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@media (max-width: 575.98px) {
+    .CardForm {
+        max-width: 375px;
+        margin-top: -30%;
+    }
+}
