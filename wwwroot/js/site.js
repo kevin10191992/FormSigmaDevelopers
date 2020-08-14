@@ -3,15 +3,20 @@
 //GetDepCity
 fun.GetDepCity = () => {
     if (!localStorage.getItem("DepCity")) {
-        let cors = "https://cors-anywhere.herokuapp.com/";
-        fetch(cors + 'https://sigma-studios.s3-us-west-2.amazonaws.com/test/colombia.json')
+
+        fetch(URL_ACTION_DeptCity)
             .then(function (response) {
                 return response.json();
             })
             .then(function (json) {
-                console.log("Loaded");
-                localStorage.setItem("DepCity", JSON.stringify(json));
-                fun.FillDept();
+                if (json.codigo == "01") {
+                    localStorage.setItem("DepCity", JSON.stringify(json.data));
+                    fun.FillDept();
+                }
+                else {
+                    Util.MensajeError(json.descripcion);
+                }
+
             });
     } else {
         fun.FillDept();

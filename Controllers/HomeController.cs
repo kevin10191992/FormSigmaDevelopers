@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FormSigmaDevelopers.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using FormSigmaDevelopers.Interfaces;
+using Microsoft.Extensions.Configuration;
+using FormSigmaDevelopers.Utils;
+using Newtonsoft.Json.Linq;
 
 namespace FormSigmaDevelopers.Controllers
 {
@@ -17,16 +15,25 @@ namespace FormSigmaDevelopers.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IFormService _formService;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, IFormService formService)
+        public HomeController(ILogger<HomeController> logger, IFormService formService, IConfiguration configuration)
         {
             _logger = logger;
             _formService = formService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<ResultResponse> GetDetpCity()
+        {
+            ResultResponse result = await _formService.GetCatalog();
+
+            return result;
         }
 
         [HttpPost]

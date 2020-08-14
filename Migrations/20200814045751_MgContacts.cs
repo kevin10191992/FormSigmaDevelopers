@@ -3,31 +3,31 @@ using MySql.Data.EntityFrameworkCore.Metadata;
 
 namespace FormSigmaDevelopers.Migrations
 {
-    public partial class MigContacts : Migration
+    public partial class MgContacts : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Contacts",
+                name: "contacts",
                 columns: table => new
                 {
-                    id_contacts = table.Column<int>(nullable: false)
+                    id = table.Column<int>(nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    State = table.Column<string>(nullable: false),
-                    City = table.Column<string>(nullable: false)
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Email = table.Column<string>(maxLength: 30, nullable: false),
+                    State = table.Column<string>(maxLength: 30, nullable: false),
+                    City = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Contacts", x => x.id_contacts);
+                    table.PrimaryKey("PK_contacts", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Contacts");
+                name: "contacts");
         }
     }
 }

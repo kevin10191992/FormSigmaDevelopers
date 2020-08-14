@@ -14,3 +14,11 @@ Util.MensajeCargando = () => {
         showConfirmButton: false
     });
 }
+
+Util.MensajeError = (mensaje) => {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: mensaje
+    })
+}

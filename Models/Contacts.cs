@@ -8,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace FormSigmaDevelopers.Models
 {
+    [Table("contacts")]
     public class Contacts
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("id_contacts")]
+        [Column("id")]
         public int ContactsId { get; set; }
 
         [DataType(DataType.Text)]

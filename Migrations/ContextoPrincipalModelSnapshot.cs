@@ -20,28 +20,32 @@ namespace FormSigmaDevelopers.Migrations
                 {
                     b.Property<int>("ContactsId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("id_contacts")
+                        .HasColumnName("id")
                         .HasColumnType("int");
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("State")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30);
 
                     b.HasKey("ContactsId");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("contacts");
                 });
 #pragma warning restore 612, 618
         }
