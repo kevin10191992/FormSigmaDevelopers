@@ -7,5 +7,6 @@ namespace FormSigmaDevelopers.Interfaces
     {
         Task<ResultResponse> SaveForm(Contacts Contact);
         Task<ResultResponse> GetCatalog();
+        Task<ResultResponse> ListContacts();
     }
 }

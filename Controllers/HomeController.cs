@@ -36,6 +36,15 @@ namespace FormSigmaDevelopers.Controllers
             return result;
         }
 
+        [HttpGet]
+        [Route("ListContacts")]
+        public async Task<ResultResponse> ListContacts()
+        {
+            ResultResponse result = await _formService.ListContacts();
+
+            return result;
+        }
+
         [HttpPost]
         public async Task<IActionResult> FormAdmin(Contacts datos)
         {

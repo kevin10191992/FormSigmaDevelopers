@@ -100,5 +100,42 @@ namespace FormSigmaDevelopers.Services
 
             return result;
         }
+
+
+        public async Task<ResultResponse> ListContacts()
+        {
+            ResultResponse result = new ResultResponse();
+
+            try
+            {
+
+                var res = await _context.Contacts.AsNoTracking().ToListAsync();
+
+                if (res != null)
+                {
+                    result.Codigo = "01";
+                    result.Descripcion = "Datos encontrados";
+                    result.Data = new JObject { { "Data", JArray.FromObject(res) } };
+
+                }
+                else
+                {
+                    result.Codigo = "02";
+                    result.Descripcion = "No se encontraron datos";
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                result = new ResultResponse();
+                result.Codigo = "02";
+                result.Descripcion = "Error al obtener los datos";
+                result.DetalleError = e.ToString();
+            }
+
+
+            return result;
+        }
     }
 }

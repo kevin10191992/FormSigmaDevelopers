@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  formsigmadevelopers:
+    image: ${DOCKER_REGISTRY-}formsigmadevelopers
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+            - db
+    restart: always
+  db:
+    image: yobasystems/alpine-mariadb
+    environment:
+        MYSQL_ROOT_PASSWORD: Abc2019*
+        MYSQL_DATABASE: admin_sigmatest
+        MYSQL_USER: admin_sigmauser
+        MYSQL_PASSWORD: pfaDKIJyPF
+    expose:
+        - "3306"
+    volumes:
+        - /data/example/mysql:/var/lib/mysql
+    restart: always

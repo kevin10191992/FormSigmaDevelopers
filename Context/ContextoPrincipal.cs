@@ -11,6 +11,7 @@ namespace FormSigmaDevelopers.Context
     {
         public ContextoPrincipal(DbContextOptions<ContextoPrincipal> options) : base(options)
         {
+            this.Database.EnsureCreated();
         }
 
         public DbSet<Contacts> Contacts { get; set; }
